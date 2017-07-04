@@ -1,0 +1,14 @@
+//JavaScript RLE test
+
+var input = "THIS IS A TEST OF RUN LENGTH ENCODING";
+
+var previouscharacter;
+var currentcharacter
+var counter = 1;
+for (i = 0; i < input.length; i++){
+	currentcharacter = input[i];
+
+	if (previouscharacter !== currentcharacter) {if(currentcharacter !== input[i + 1]){console.log(currentcharacter + counter);};counter = 1;}
+	else {counter++; if (currentcharacter !== input[i+1]){console.log(currentcharacter + counter);}}
+	previouscharacter = currentcharacter;
+}
