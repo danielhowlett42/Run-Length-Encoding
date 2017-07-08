@@ -1,0 +1,30 @@
+Module Module1
+
+    Sub Main()
+        Dim input As String = "THIS IS A TEST OF RUN LENGTH ENCODING"
+        Dim previouscharacter As Char
+        Dim currentcharacter As Char
+        Dim counter As Integer = 1
+        For i = 0 To (input.Length - 1)
+            currentcharacter = input.Chars(i)
+            If previouscharacter <> currentcharacter Then
+                If currentcharacter <> input.Chars(i + 1) Then
+                    Console.Write(currentcharacter & counter)
+                End If
+                counter = 1
+            Else
+                counter += 1
+                If i = input.Length - 1 Then
+                    Console.Write(currentcharacter & counter) 'an extra if statement had to be added due to how visual basic handles arrays, rather than returning null, it would be outside the array
+
+                Else
+                    If currentcharacter <> input(i + 1) Then
+                        Console.Write(currentcharacter & counter)
+                    End If
+                End If
+            End If
+            previouscharacter = currentcharacter
+        Next
+        Console.ReadLine()
+    End Sub
+End Module
